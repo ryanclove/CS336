@@ -1,36 +1,83 @@
-HW1
+1.)
+SELECT beer
+FROM sells
+WHERE bar = 'Gecko Grill' AND beer != 'Hefweizen';
+Result: 
+Budweiser
 
-SUBMISSION INSTRUCTIONS
+2.)
+SELECT DISTINCT drinker
+FROM Likes
+WHERE beer IN (SELECT beer
+	FROM Likes
+	WHERE drinker = 'Justin')
+	AND drinker <> 'Justin';
+Result: 
+John, Mike
 
-There can be many ways to submit. We will accept any (as long as we can read it)
+3.) 
+SELECT DISTINCT l.drinker, s.bar
+FROM Likes l, Sells s, Frequents f
+WHERE l.beer = s.beer
+AND f.drinker = l.drinker
+AND f.bar = s.bar;
+Result:
+Mike - A.P.Stump's
+Jesse - Blue Angel
+Mike - Blue Angel
+John - Cabana
+Mike - Cabana
+John - Caravan
+Justin - Gecko Grill
+Mike - The Shark and Rose
+Justin - Caravan
+Justin - Seven Bamboo
 
-Best would be ONE txt file  (Notepad) with 
+4.)
+SELECT B.bar
+FROM ((SELECT bar FROM Frequents
+	WHERE drinker = 'Justin')
+	UNION
+	(SELECT bar FROM Frequents
+		WHERE drinker = 'Rebecca')) as B
+WHERE B.bar NOT IN (SELECT f1.bar FROM Frequents f1, Frequents f2
+			WHERE f1.bar = f2.bar
+			AND f1.drinker = 'Justin'
+			AND f2.drinker = 'Rebecca')
+Result:
+Caravan, Seven Bamboo, and Coconut Willie's Cocktail Lounge
 
-query #
-sql query
-followed by result which you got from practice database
-in txt
+5.)
+SELECT DISTINCT f.drinker
+FROM Frequents f, Sells s, Likes l
+WHERE s.bar = f.bar
+	AND l.drinker = f.drinker
+	AND s.beer = l.beer
+Result:
+Mike, Jesse, John, Justin
 
-so 8 such "items" in one file.
+6.)
+SELECT DISTINCT s.bar
+FROM Likes l1, Sells s
+WHERE (l1.drinker = 'John' or l1.drinker = 'Rebecca')
+	AND s.beer = l1.beer
+	AND s.price < 5
+Result:
+Club 175, Coconut Willie's Cocktail Lounge, Gecko Grill, Giza Hookah Lounge, Seven Bamboo,
+The Backbeat, The Shark and Rose
 
+7.) 
+SELECT l1.drinker
+FROM Likes l1, Likes l2
+WHERE l1.drinker = l2.drinker
+	AND l1.beer = 'Killian''s'
+	AND l2.beer = 'Hefeweizen'
+Result:
+Mike
 
-Assignment:
-
-Write SQL queries for each of the 8 queries below and execute them on the database instance  provided in our BarBeerDrinker database (instructions how to connect and download SQL query workbench in the document posted in resources)
-
-Submission Instruction:   Text file showing
-
-a) Each query (8)
-b) the results returned  by the practice database Bar-Beer-Drinker Instance(8)
-
-LIST OF QUERIES:
-
-
-1. Beers other than Hefeweizen which are served by Gecko Grill bar
-2. Drinkers  who like some beers which Justin also likes
-3. Pairs of drinkers and bars such that a drinker frequents the bar and the bar serves at least one beer which the drinker likes
-4. Bars which are frequented by Justin or Rebecca but not by both of them
-5. Drinkers who frequent bars which sell some beer that they like
-6. Bars which serve some beers which John or Rebecca like and which are cheaper than $5
-7. Drinkers who like both Hefeweizen and Killian's
-8. Bars with names containing "The"
+8.)
+SELECT name
+FROM Bars
+WHERE name LIKE '%The%'
+Result:
+The B-Hive, The Backbeat, The Blank Club, The Shark and Rose
