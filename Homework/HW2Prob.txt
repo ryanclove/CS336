@@ -1,0 +1,33 @@
+HW2
+
+SUBMISSION INSTRUCTIONS
+
+There can be many ways to submit. We will accept any (as long as we can read it)
+
+Best would be ONE txt file  (Notepad) with 
+
+query #
+sql query
+followed by result which you got from practice database
+in txt
+
+LIST OF QUERIES:
+
+
+1. Beers which are not served by Gecko Grill bar
+2. Drinkers who like all beers which Justin likes
+3. Pairs of drinkers and bars such that a drinker frequents the bar and the bar serves no beer which the drinker likes
+4. Bars which are frequented by neither Justin nor Rebecca 
+5. Drinkers who frequent only these bars which sell beers that they like
+6. Bars which serve no beer cheaper than $5
+7. What is the bar with the highest average price of beer that it sells
+8. Order all bars by the average price of beer that they sell (in descending order)
+9. Find all bars whose names consist of more than one word
+10. Which drinker(s) like the most beers
+11. Which beer has the highest average price over all bars
+12. Find bar(s) which charge the smallest price for Budweiser (Bud)
+13. Using outer join (left/right - your choice) Find drinkers who do not  frequent  
+any bar which sells Budweiser
+14. Using outerjoin find a beer which is not sold by any bar which Mike frequents
+15. Write a query which returns "Yes" if there is any beer which all drinkers like, and "No" otherwise.
+16. Write a query like the one above which either returns such a beer, or if there is no such beer, returns "No such a beer exists".
