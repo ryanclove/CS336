@@ -1,0 +1,36 @@
+HW1
+
+SUBMISSION INSTRUCTIONS
+
+There can be many ways to submit. We will accept any (as long as we can read it)
+
+Best would be ONE txt file  (Notepad) with 
+
+query #
+sql query
+followed by result which you got from practice database
+in txt
+
+so 8 such "items" in one file.
+
+
+Assignment:
+
+Write SQL queries for each of the 8 queries below and execute them on the database instance  provided in our BarBeerDrinker database (instructions how to connect and download SQL query workbench in the document posted in resources)
+
+Submission Instruction:   Text file showing
+
+a) Each query (8)
+b) the results returned  by the practice database Bar-Beer-Drinker Instance(8)
+
+LIST OF QUERIES:
+
+
+1. Beers other than Hefeweizen which are served by Gecko Grill bar
+2. Drinkers  who like some beers which Justin also likes
+3. Pairs of drinkers and bars such that a drinker frequents the bar and the bar serves at least one beer which the drinker likes
+4. Bars which are frequented by Justin or Rebecca but not by both of them
+5. Drinkers who frequent bars which sell some beer that they like
+6. Bars which serve some beers which John or Rebecca like and which are cheaper than $5
+7. Drinkers who like both Hefeweizen and Killian's
+8. Bars with names containing "The"
